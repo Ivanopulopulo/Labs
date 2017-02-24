@@ -1,3 +1,4 @@
+
 #include <iostream> 
 #include <stdlib.h> 
 #include <conio.h> 
@@ -12,51 +13,35 @@ public:
 		comp.a = x;
 		comp.b = y;
 	}
-	int n = 2;
-	Complex operator +(const Complex &c);
-	Complex operator -(const Complex &c);
-	Complex operator /(const Complex &c);
-	Complex operator *(const Complex &c);
-
 	Complex Read();
-	Complex ch();
-	
-
-
-	void Display();
+	void const add(Complex c1)
+	{
+		comp.a = comp.a + c1.comp.a;
+		comp.b = comp.b + c1.comp.b;
+	}
+	void const sub(Complex c2)
+	{
+		comp.a = comp.a - c2.comp.a;
+		comp.b = comp.b - c2.comp.b;
+	}
+	void const multInt(int n)
+	{
+		comp.a = comp.a * n;
+		comp.b = comp.b * n;
+	}
+	void const divInt(int n)
+	{
+		comp.a = comp.a / n;
+		comp.b = comp.b / n;
+	}
+	void print()
+	{
+		if (comp.b >= 0)
+			cout << comp.a << "+" << comp.b << "i\n";
+		else
+			cout << comp.a << comp.b << "i\n";
+	}
 };
-Complex Complex:: operator+(const Complex &c){
-	Complex d;
-	d.comp.a = comp.a + c.comp.a;
-	d.comp.b = comp.b + c.comp.b;
-	return d;
-
-}
-Complex Complex:: operator-(const Complex &c){
-	Complex j;
-	j.comp.a = comp.a - c.comp.a;
-	j.comp.b = comp.b - c.comp.b;
-	return j;
-}
-Complex Complex:: operator*(const Complex &c){
-	Complex p;
-	p.comp.a = comp.a * n;
-	p.comp.b = comp.b * n;
-	return p;
-}
-Complex Complex:: operator/(const Complex &c){
-	Complex o;
-	o.comp.a = comp.a / n;
-	o.comp.b = comp.b / n;
-	return o;
-}
-
-void Complex::Display(){
-	if (comp.b >= 0)
-		cout << comp.a << "+" << comp.b << "i\n";
-	else
-		cout << comp.a << comp.b << "i\n";
-}
 Complex Complex::Read(){
 	double x, y;
 	cout << "Действительная часть\n";
@@ -66,76 +51,36 @@ Complex Complex::Read(){
 	Complex A = Complex(x, y);
 	return A;
 }
-
-int chois(){
-	int chois_1;
-	cout << "Операции с комплексными числами\n";
-	cout << "1 - Сложение\n";
-	cout << "2 - Вычитание\n";
-	cout << "3 - Умножение на 2 \n";
-	cout << "4 - Деление на 2 \n";
-	cout << "Выберите действие:\n";
-	cin >> chois_1;
-	return chois_1;
-}
-void prog(){
-	switch (chois()){
-	case 1: {
-				Complex a, b;
-				cout << "Первое число \n";
-				a = a.Read();
-				cout << "Второе число \n";
-				b = b.Read();
-				Complex c = a + b;
-				c.Display();
-				system("pause");
-				break;
-	}
-	case 2: {
-				Complex a, b;
-				cout << "Первое число \n";
-				a = a.Read();
-				cout << "Второе число \n";
-				b = b.Read();
-				Complex c = a - b;
-				c.Display();
-				system("pause");
-				break;
-				prog();
-	}
-	case 3: {
-				Complex a;
-				int n = 2;
-				cout << "Комплексное число \n";
-				a = a.Read();
-				Complex c = a * n;
-				c.Display();
-				system("pause");
-				break;
-				prog();
-
-	}
-	case 4: {
-				Complex a;
-				int n = 2;
-				cout << "Комплексное число \n";
-				a = a.Read();
-				Complex c = a / n;
-				c.Display();
-				system("pause");
-				break;
-				prog();
-
-	}
-		system("pause");
-	}
-}
 int main()
 {
 	setlocale(LC_ALL, "Russian");
 	cout << "Программа для работы с комплексными числами. Версия Alfa 1" << endl;
+	cout << "Операции с комплексными числами\n";
+	cout << "1 - Сложение\n";
+	cout << "2 - Вычитание\n";
+	cout << "3 - Умножение на 2 \n";
+	cout << "4 - Деление на 5 \n";
+	Complex a,b,c1,c2,с,g,y,o;
+	cout << "Первое число \n";
+	y = с = a = a.Read();
+	cout << "Второе число \n";
+	o = b = b.Read();
+	cout << "Число 1: ";
+	a.print();
+	cout << "Число 2: ";
+	b.print();
+	a.add(b);
+	cout << "Сумма 1 и 2 числа: ";
+	a.print();
+	с.sub(b);
+	cout << "Вычитание из 1 числа 2: ";
+	с.print();
+	y.multInt(2);
+	cout << "Умножение 1 числа на 2: ";
+	y.print();
+	o.divInt(5);
+	cout << "Деление числа 2 на 5: ";
+	o.print();
 	system("pause");
-	system("cls");
-	prog();
-
+	return 0;
 }
