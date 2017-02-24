@@ -41,7 +41,7 @@ public:
 		t.comp.b = comp.b / n;
 		return t;
 	}
-	void print(std::ostream)
+	void print()
 	{
 		if (comp.b >= 0)
 			cout << comp.a << "+" << comp.b << "i\n";
@@ -68,27 +68,27 @@ int main()
 	cout << "2 - Вычитание\n";
 	cout << "3 - Умножение на 2 \n";
 	cout << "4 - Деление на 5 \n";
-	Complex a, b;
+	Complex a, b,c;
 	cout << "Первое число \n";
 	a = a.Read();
 	cout << "Второе число \n";
 	b = b.Read();
 	cout << "Число 1: ";
-	//print();
+	a.print();
 	cout << "Число 2: ";
-	//print();
-	a.add(b);
+	b.print();
+	c = a.add(b);
 	cout << "Сумма 1 и 2 числа: ";
-	//print();
-	a.sub(b);
+	c.print();
+	c = a.sub(b);
 	cout << "Вычитание из 1 числа 2: ";
-	//print();
-	a.multInt(2);
+	c.print();
+	c = a.multInt(2);
 	cout << "Умножение 1 числа на 2: ";
-	//print();
-	b.divInt(5);
+	c.print();
+	c = b.divInt(5);
 	cout << "Деление числа 2 на 5: ";
-	//print();
+	c.print();
 	system("pause");
 	return 0;
 }
