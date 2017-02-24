@@ -1,0 +1,94 @@
+#include <iostream> 
+#include <stdlib.h> 
+#include <conio.h> 
+using namespace std;
+
+class Complex{
+	struct complex { double a, b; };
+	struct complex comp;
+public:
+	 Complex Read();
+	Complex(double x = 0, double y = 0)
+	{
+		comp.a = x;
+		comp.b = y;
+	}
+	const Complex add(Complex c1)
+	{
+		Complex r;
+		r.comp.a = comp.a + c1.comp.a;
+		r.comp.b = comp.b + c1.comp.b;
+		return r;
+	}
+	const Complex sub(Complex c2)
+	{
+		Complex l;
+		l.comp.a = comp.a - c2.comp.a;
+		l.comp.b = comp.b - c2.comp.b;
+		return l;
+	}
+	const Complex multInt(int n)
+	{
+		Complex q;
+		q.comp.a = comp.a * n;
+		q.comp.b = comp.b * n;
+		return q;
+	}
+	const Complex divInt(int n)
+	{
+		Complex t;
+		t.comp.a = comp.a / n;
+		t.comp.b = comp.b / n;
+		return t;
+	}
+	void print(std::ostream)
+	{
+		if (comp.b >= 0)
+			cout << comp.a << "+" << comp.b << "i\n";
+		else
+			cout << comp.a << comp.b << "i\n";
+	}
+
+};
+Complex Complex::Read(){
+	double x, y;
+	cout << "Действительная часть\n";
+	cin >> x;
+	cout << "Мнимая часть\n";
+	cin >> y;
+	Complex A = Complex(x, y);
+	return A;
+}
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	cout << "Программа для работы с комплексными числами. Версия Alfa 1" << endl;
+	cout << "Операции с комплексными числами\n";
+	cout << "1 - Сложение\n";
+	cout << "2 - Вычитание\n";
+	cout << "3 - Умножение на 2 \n";
+	cout << "4 - Деление на 5 \n";
+	Complex a, b;
+	cout << "Первое число \n";
+	a = a.Read();
+	cout << "Второе число \n";
+	b = b.Read();
+	cout << "Число 1: ";
+	//print();
+	cout << "Число 2: ";
+	//print();
+	a.add(b);
+	cout << "Сумма 1 и 2 числа: ";
+	//print();
+	a.sub(b);
+	cout << "Вычитание из 1 числа 2: ";
+	//print();
+	a.multInt(2);
+	cout << "Умножение 1 числа на 2: ";
+	//print();
+	b.divInt(5);
+	cout << "Деление числа 2 на 5: ";
+	//print();
+	system("pause");
+	return 0;
+}
