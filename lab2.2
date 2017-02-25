@@ -4,52 +4,55 @@
 using namespace std;
 
 class Complex{
-	struct complex { double a, b; };
-	struct complex comp;
+	 double a, b;
 public:
 	 Complex Read();
+	 Complex add(Complex c1);
+	 Complex sub(Complex c2);
+	 Complex multInt(int n) ; 
+	 Complex divInt(int n);
 	Complex(double x = 0, double y = 0)
 	{
-		comp.a = x;
-		comp.b = y;
+		a = x;
+		b = y;
 	}
-	const Complex add(Complex c1)
+	void print(std::ostream & stream) const
 	{
-		Complex r;
-		r.comp.a = comp.a + c1.comp.a;
-		r.comp.b = comp.b + c1.comp.b;
-		return r;
-	}
-	const Complex sub(Complex c2)
-	{
-		Complex l;
-		l.comp.a = comp.a - c2.comp.a;
-		l.comp.b = comp.b - c2.comp.b;
-		return l;
-	}
-	const Complex multInt(int n)
-	{
-		Complex q;
-		q.comp.a = comp.a * n;
-		q.comp.b = comp.b * n;
-		return q;
-	}
-	const Complex divInt(int n)
-	{
-		Complex t;
-		t.comp.a = comp.a / n;
-		t.comp.b = comp.b / n;
-		return t;
-	}
-	void print()
-	{
-		if (comp.b >= 0)
-			cout << comp.a << "+" << comp.b << "i\n";
+		if (b >= 0)
+		stream <<  a << "+" << b << "i\n";
 		else
-			cout << comp.a << comp.b << "i\n";
+			stream << a << b << "i\n";
 	}
-
 };
+Complex Complex::add(Complex c1)
+{
+	Complex r;
+	r.a = a + c1.a;
+	r.b = b + c1.b;
+	return r;
+}
+Complex Complex::sub(Complex c2)
+{
+	Complex l;
+	l.a = a - c2.a;
+	l.b = b - c2.b;
+	return l;
+}
+Complex Complex::multInt(int n) 
+{
+	Complex q;
+	q.a = a * n;
+	q.b = b * n;
+	return q;
+}
+Complex Complex::divInt(int n)
+{
+	Complex t;
+	t.a = a / n;
+	t.b = b / n;
+	return t;
+}
+
 Complex Complex::Read(){
 	double x, y;
 	cout << "Действительная часть\n";
@@ -74,21 +77,21 @@ int main()
 	cout << "Второе число \n";
 	b = b.Read();
 	cout << "Число 1: ";
-	a.print();
+	a.print(std::cout);
 	cout << "Число 2: ";
-	b.print();
+	b.print(std::cout);
 	c = a.add(b);
 	cout << "Сумма 1 и 2 числа: ";
-	c.print();
+	c.print(std::cout);
 	c = a.sub(b);
 	cout << "Вычитание из 1 числа 2: ";
-	c.print();
+	c.print(std::cout);
 	c = a.multInt(2);
 	cout << "Умножение 1 числа на 2: ";
-	c.print();
+	c.print(std::cout);
 	c = b.divInt(5);
 	cout << "Деление числа 2 на 5: ";
-	c.print();
+	c.print(std::cout);
 	system("pause");
 	return 0;
 }
