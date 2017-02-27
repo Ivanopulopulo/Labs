@@ -7,10 +7,10 @@ class Complex{
 	 double a, b;
 public:
 	 Complex Read();
-	 const Complex add(const Complex c1);
-	 const Complex sub(const Complex c2);
-	 const Complex multInt(const int n);
-	 const Complex divInt(const int n);
+	 Complex add(const Complex c1) const ;
+	 Complex sub(const Complex c2) const ;
+	 Complex multInt(const int n) const ;
+	Complex divInt(const int n) const ;
 	Complex(double x = 0, double y = 0)
 	{
 		a = x;
@@ -24,28 +24,28 @@ public:
 			stream << a << b << "i\n";
 	}
 };
-const Complex Complex::add(const Complex c1)
+Complex Complex::add(const Complex c1) const 
 {
 	Complex r;
 	r.a = a + c1.a;
 	r.b = b + c1.b;
 	return r;
 }
-const Complex Complex::sub(const Complex c2)
+Complex Complex::sub(const Complex c2) const 
 {
 	Complex l;
 	l.a = a - c2.a;
 	l.b = b - c2.b;
 	return l;
 }
-const Complex Complex::multInt(const int n)
+Complex Complex::multInt(const int n) const 
 {
 	Complex q;
 	q.a = a * n;
 	q.b = b * n;
 	return q;
 }
-const Complex Complex::divInt(const int n)
+Complex Complex::divInt(const int n) const 
 {
 	Complex t;
 	t.a = a / n;
