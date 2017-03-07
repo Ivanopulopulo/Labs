@@ -96,7 +96,7 @@ public:
 		{
 			for (int j = 0; j < Strings; j++)
 			{
-				a.set(i,j, a.get(i,j) * get(i,j;
+				a.set(i,j, a.get(i,j) * get(i,j);
 			}
 		}
 		return a;
