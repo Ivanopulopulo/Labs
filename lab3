@@ -58,21 +58,21 @@ public:
 		}
 	}
 
-		int Col(void)
+	int Col(void)
 	{
 		return Columns;
 	}
 
-		int Str(void)
+	int Str(void)
 	{
 		return Strings;
 	}
-		int set(int x, int y, int z)
+	int set(int x, int y, int z)
 	{
 		return matrix[x][y] = z;
 	}
 
-		int get(int x, int y)
+	int get(int x, int y)
 	{
 		return matrix[x][y];
 	}
@@ -90,6 +90,17 @@ public:
 		}
 		return a;
 	}
+	Matrix operator *(Matrix a)
+	{
+		for (int i = 0; i < Columns; i++)
+		{
+			for (int j = 0; j < Strings; j++)
+			{
+				a.set(i,j, a.get(i,j) * get(i,j;
+			}
+		}
+		return a;
+	}
 };
 
 int main()
@@ -97,17 +108,12 @@ int main()
 	setlocale(LC_ALL, "Russian");
 	cout << "Версия программы: Alfa 1.0\n";
 	Matrix file = Matrix(3, 3);
-
-	file.input("D://file.txt");
-
+	file.input("C://file.txt");
 	file.print();
-
 	file = file + file;
-
+	file.print();
+	file = file * file;
 	file.print();
 
 	system("pause");
-
-
-
 }
